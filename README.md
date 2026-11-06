@@ -79,8 +79,8 @@ graph TD
     C -->|Uses Choices| D
 
     style Client fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Platform fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-    style Experience fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+style Platform fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+style Experience fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
 ```
 
 ### 📋 Data Model (What's in the Database)
