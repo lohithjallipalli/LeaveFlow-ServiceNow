@@ -51,31 +51,36 @@
 
 ---
 
-## 🏗️ Architecture 
-
+##  Architecture 
 ```mermaid
 graph TD
-    subgraph "Client Side"
-        A[Web Browser] -->|HTTPS Request| B[ServiceNow Instance]
+    subgraph Client["Client Side"]
+        A[Web Browser]
     end
 
-    subgraph "ServiceNow Platform"
-        B -->|Table API| C[Leave Request Table<br>(x_snc_leaveflow_leave_request)]
-        B -->|Choice List| D[Leave Type Config]
-        B -->|Script Includes| E[ManagerLeaveActions<br>LeaveRequestUtils]
-        B -->|REST API| F[Nager.Date Holidays]
+    subgraph Platform["ServiceNow Platform"]
+        B[Instance]
+        C[Leave Request Table]
+        D[Leave Type Choices]
+        E[Script Includes]
+        F[Nager.Date API]
     end
 
-    subgraph "User Experience"
-        G[Employee Portal] -->|Submit Requests| C
-        G -->|View Balances| C
-        H[Manager Dashboard] -->|Approve/Reject| C
-        H -->|Team Calendar| C
+    subgraph Experience["User Experience"]
+        G[Employee Portal]
+        H[Manager Dashboard]
     end
 
-    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style C fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-    style D fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    A -->|Requests| C
+    A -->|Views Balances| C
+    H -->|Approves/Rejects| C
+    H -->|Team Calendar| C
+    C -->|Gets Holidays| F
+    C -->|Uses Choices| D
+
+    style Client fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Platform fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style Experience fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
 ```
 
 ### 📋 Data Model (What's in the Database)
