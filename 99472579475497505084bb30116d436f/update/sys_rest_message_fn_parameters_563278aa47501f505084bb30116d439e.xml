@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>year</name>
+        <rest_message_function display_value="getPublicHolidays">4f61306a47501f505084bb30116d4399</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-04 17:43:57</sys_created_on>
+        <sys_id>563278aa47501f505084bb30116d439e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>year</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_563278aa47501f505084bb30116d439e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-04 17:43:57</sys_updated_on>
+        <type>string</type>
+        <value>2026</value>
+    </sys_rest_message_fn_parameters>
+</record_update>

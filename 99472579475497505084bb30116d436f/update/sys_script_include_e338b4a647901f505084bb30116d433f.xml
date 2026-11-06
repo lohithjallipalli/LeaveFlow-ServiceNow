@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_2236918_leavef_1.LeaveFlowAjax</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>LeaveFlowAjax</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[// Name: LeaveFlowAjax     Client callable: TRUE     Accessible from: This application scope only
+var LeaveFlowAjax = Class.create();
+LeaveFlowAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    getHolidays: function() {
+        var year = this.getParameter('sysparm_year');
+        var country = gs.getProperty('x_2236918_leavef_1.holiday_country', 'BR');
+        var result = new HolidayService().getHolidays(year, country);
+        return JSON.stringify(result);
+    },
+    type: 'LeaveFlowAjax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-04 18:10:40</sys_created_on>
+        <sys_id>e338b4a647901f505084bb30116d433f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>LeaveFlowAjax</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_script_include_e338b4a647901f505084bb30116d433f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-04 18:10:40</sys_updated_on>
+    </sys_script_include>
+</record_update>

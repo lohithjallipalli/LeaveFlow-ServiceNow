@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_2236918_leavef_1.HolidayService</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>HolidayService</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var HolidayService = Class.create();
+HolidayService.prototype = {
+    initialize: function() {},
+    /** @returns {{ok:boolean, holidays:Array, message:string}} - never throws */
+    getHolidays: function(year, country) {
+        var out = {
+            ok: false,
+            holidays: [],
+            message: ''
+        };
+        year = parseInt(year, 10);
+        country = String(country || '').toUpperCase();
+        if (!(year >= 2000 && year <= 2100) || !/^[A-Z]{2}$/.test(country)) {
+            out.message = 'Invalid year or country code.';
+            return out;
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2('Nager Date API', 'getPublicHolidays');
+            r.setStringParameterNoEscape('year', String(year));
+            r.setStringParameterNoEscape('country', country);
+            r.setHttpTimeout(8000); // 8 seconds
+            var resp = r.execute();
+            var code = resp.getStatusCode();
+            if (code !== 200) {
+                gs.warn('HolidayService: HTTP ' + code); // log status only, never the body or secrets
+                out.message = 'The holiday service is unavailable right now.';
+                return out;
+            }
+            var data = JSON.parse(resp.getBody());
+            out.holidays = data.map(function(h) {
+                return {
+                    date: h.date,
+                    name: h.name,
+                    localName: h.localName
+                };
+            });
+            out.ok = true;
+            if (out.holidays.length === 0) {
+                out.message = 'No holidays found for that year and country.';
+            }
+        } catch (e) {
+            gs.warn('HolidayService error: ' + e.message);
+            out.message = 'The holiday service is unavailable right now.';
+        }
+        return out;
+    },
+    type: 'HolidayService'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-04 17:52:25</sys_created_on>
+        <sys_id>cbd33c6e47501f505084bb30116d4341</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HolidayService</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_script_include_cbd33c6e47501f505084bb30116d4341</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-04 17:52:25</sys_updated_on>
+    </sys_script_include>
+</record_update>

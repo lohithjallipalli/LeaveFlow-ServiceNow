@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_2236918_leavef_1_leave_request</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Leave Request - validate and prepare</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    var util = new LeaveRequestUtils();
+    var isAdmin = gs.hasRole('x_2236918_leavef_1.admin') || gs.hasRole('admin');
+
+    // A cancelled request is final (stops a late approval from reviving it)
+    if (!current.isNewRecord() && previous.status == 'cancelled' && current.status != 'cancelled') {
+        gs.addErrorMessage('A cancelled request cannot be reopened.');
+        current.setAbortAction(true);
+        return;
+    }
+    // 1. Employee is always the signed-in user, unless an admin files on behalf of someone
+    if (current.isNewRecord() && !isAdmin) {
+        current.employee = gs.getUserID();
+    }
+    // 2. Manager comes from the employee profile; an admin may override
+    if (current.manager.nil() || (current.employee.changes() && !isAdmin)) {
+        current.manager = current.employee.manager;
+    }
+    if (!current.manager.nil() && current.manager == current.employee) {
+        gs.addErrorMessage('An employee cannot be their own approver.');
+        current.setAbortAction(true);
+        return;
+    }
+    // 3. Date range check (server-side, independent of any client script)
+    var result = util.validateRange(current.getValue('start_date'), current.getValue('end_date'));
+    if (!result.valid) {
+        gs.addErrorMessage(result.message);
+        current.setAbortAction(true);
+        return;
+    }
+    current.days_requested = result.days;
+    // 4. After the first save, non-admins may not change core fields
+    if (!current.isNewRecord() && previous.status != 'draft' && !isAdmin) {
+        var locked = ['employee', 'manager', 'leave_type', 'start_date', 'end_date', 'reason'];
+        for (var i = 0; i < locked.length; i++) {
+            if (current[locked[i]].changes()) {
+                gs.addErrorMessage('A submitted request cannot be edited. Cancel it and create a new one.');
+                current.setAbortAction(true);
+                return;
+            }
+        }
+    }
+    // 5. Extra rules only at the moment of submission
+    var submitting = current.status == 'submitted' &&
+        (current.isNewRecord() || current.status.changes());
+    if (submitting) {
+        if (current.manager.nil()) {
+            gs.addErrorMessage('You have no manager on your profile. Ask an administrator to set one.');
+            current.setAbortAction(true);
+            return;
+        }
+        if (util.hasOverlap(current.getValue('employee'), current.getValue('start_date'),
+                current.getValue('end_date'), current.getUniqueValue())) {
+            gs.addErrorMessage('You already have leave requested or approved that overlaps these dates.');
+            current.setAbortAction(true);
+            return;
+        }
+        if (current.leave_type.active.toString() !== 'true') {
+            gs.addErrorMessage('The selected leave type is no longer active.');
+            current.setAbortAction(true);
+            return;
+        }
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-03 17:54:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4689e34247545b505084bb30116d431c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Leave Request - validate and prepare</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_script_4689e34247545b505084bb30116d431c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-04 17:11:27</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=4689e34247545b505084bb30116d431c"/>
+</record_update>

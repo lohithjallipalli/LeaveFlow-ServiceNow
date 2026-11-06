@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_2236918_leavef_1.LeaveRequestUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>LeaveRequestUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var LeaveRequestUtils = Class.create();
+LeaveRequestUtils.prototype = {
+    initialize: function() {},
+    /**
+     * Validates a date range given as internal date strings (yyyy-MM-dd).
+     * @returns {{valid:boolean, message:string, days:number}}
+     */
+    validateRange: function(startStr, endStr) {
+        if (!startStr || !endStr) {
+            return {
+                valid: false,
+                message: 'Start Date and End Date are required.',
+                days: 0
+            };
+        }
+        var s = new GlideDate();
+        s.setValue(startStr);
+        var e = new GlideDate();
+        e.setValue(endStr);
+        var diffMs = e.getNumericValue() - s.getNumericValue();
+        if (diffMs < 0) {
+            return {
+                valid: false,
+                message: 'End Date cannot be earlier than Start Date.',
+                days: 0
+            };
+        }
+        // +1 because both the first and last day are leave days (calendar days, v1)
+        return {
+            valid: true,
+            message: '',
+            days: Math.round(diffMs / 86400000) + 1
+        };
+    },
+    /**
+     * True if the employee already has a Submitted or Approved request overlapping the range.
+     * excludeSysId lets the record being saved ignore itself.
+     */
+    hasOverlap: function(employeeSysId, startStr, endStr, excludeSysId) {
+        var gr = new GlideRecord('x_2236918_leavef_1_leave_request');
+        gr.addQuery('employee', employeeSysId);
+        gr.addQuery('status', 'IN', 'submitted,approved');
+        gr.addQuery('start_date', '<=', endStr);
+        gr.addQuery('end_date', '>=', startStr);
+        if (excludeSysId) {
+            gr.addQuery('sys_id', '!=', excludeSysId);
+        }
+        gr.setLimit(1);
+        gr.query();
+        return gr.hasNext();
+    },
+    /** Friendly label for a status value, used by notifications. */
+    statusLabel: function(value) {
+        var map = {
+            draft: 'Draft',
+            submitted: 'Awaiting approval',
+            approved: 'Approved',
+            rejected: 'Rejected',
+            cancelled: 'Cancelled'
+        };
+        return map[value] || value;
+    },
+    type: 'LeaveRequestUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-03 17:34:32</sys_created_on>
+        <sys_id>da466f8a47145b505084bb30116d43d8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>LeaveRequestUtils</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_script_include_da466f8a47145b505084bb30116d43d8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-03 17:38:06</sys_updated_on>
+    </sys_script_include>
+</record_update>

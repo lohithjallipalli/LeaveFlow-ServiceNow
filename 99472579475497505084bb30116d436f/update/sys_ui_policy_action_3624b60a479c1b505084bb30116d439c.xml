@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>approval_comments</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-03 13:54:23</sys_created_on>
+        <sys_id>3624b60a479c1b505084bb30116d439c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>approval_comments</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_3624b60a479c1b505084bb30116d439c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-03 13:54:23</sys_updated_on>
+        <table>x_2236918_leavef_1_leave_request</table>
+        <ui_policy display_value="Hide decision comments until decided.">3d537e86479c1b505084bb30116d430e</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=3624b60a479c1b505084bb30116d439c"/>
+</record_update>
