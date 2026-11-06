@@ -1,6 +1,5 @@
 #  LeaveFlow - Leave Management Portal
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lohithjallipalli&show_icons=true&theme=dark&include_all_commits=false&count_private=false)
 
 > A modern leave management system for employees and managers. Submit time off, track balances, and get manager approval — all in one elegant platform.
 
