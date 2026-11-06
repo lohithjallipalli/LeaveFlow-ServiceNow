@@ -49,7 +49,7 @@
         <type>flow</type>
         <updation_source/>
         <version>2</version>
-        <version_record>766090de475c5b505084bb30116d4385</version_record>
+        <version_record>b64623164718db505084bb30116d43d5</version_record>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=22764412471c5b505084bb30116d43fd"/>
     <sys_variable_value action="delete_multiple" query="document_key=22764412471c5b505084bb30116d43fd"/>
@@ -83,16 +83,16 @@
     </sys_flow_record_trigger>
     <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
         <active>true</active>
-        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <data>{"run_on_extended":"false","run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any"}</data>
         <identifier>22764412471c5b505084bb30116d43fd</identifier>
         <identifier_type>flow</identifier_type>
         <runner>FDTriggerRunner</runner>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-11-03 20:37:10</sys_created_on>
         <sys_id>926050de475c5b505084bb30116d4399</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-11-03 20:37:10</sys_updated_on>
+        <sys_updated_on>2026-11-04 13:24:26</sys_updated_on>
         <trigger display_value="">5a6050de475c5b505084bb30116d4397</trigger>
     </sys_trigger_runner_mapping>
     <sys_trigger_runner_mapping action="delete_multiple" query="identifier=22764412471c5b505084bb30116d43fd^sys_idNOT IN926050de475c5b505084bb30116d4399"/>

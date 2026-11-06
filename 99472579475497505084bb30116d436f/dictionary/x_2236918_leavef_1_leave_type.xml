@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="ab56028a47181b505084bb30116d4396" label="Leave Type" max_length="40" name="x_2236918_leavef_1_leave_type" type="collection">
+        <element label="Description" max_length="500" name="description" type="string"/>
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string" unique="true"/>
+        <element default="true" label="Requires Approval" max_length="40" name="requires_approval" type="boolean"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+    </element>
+</database>

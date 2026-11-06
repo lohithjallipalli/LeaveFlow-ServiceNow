@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="ab4a4e4247581b505084bb30116d437a" label="Leave Request" max_length="40" name="x_2236918_leavef_1_leave_request" type="collection">
+        <element label="End Date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
+        <element label="Reason" max_length="1000" name="reason" type="string"/>
+        <element choice="1" default="draft" label="Status" mandatory="true" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Approved" sequence="300" value="approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="400" value="rejected"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="500" value="cancelled"/>
+                <element inactive_on_update="false" label="Draft" sequence="100" value="draft"/>
+                <element inactive_on_update="false" label="Submitted" sequence="200" value="submitted"/>
+            </choice>
+        </element>
+        <element label="Manager" max_length="32" name="manager" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Approval Comments" max_length="1000" name="approval_comments" type="string"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="Employee" mandatory="true" max_length="32" name="employee" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference" use_dynamic_default="true"/>
+        <element label="Start Date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
+        <element label="Leave Type" mandatory="true" max_length="32" name="leave_type" reference="x_2236918_leavef_1_leave_type" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Days Requested" max_length="40" name="days_requested" read_only="true" read_only_option="display_read_only" type="integer"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="employee"/>
+        </index>
+        <index name="index2">
+            <element name="leave_type"/>
+        </index>
+        <index name="index3">
+            <element name="manager"/>
+        </index>
+    </element>
+</database>

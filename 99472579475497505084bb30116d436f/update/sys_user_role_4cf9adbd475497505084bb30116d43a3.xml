@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>Can create and view own leave requests</description>
         <elevated_privilege>false</elevated_privilege>
-        <federated_id/>
+        <federated_id>stIfk6Z1OJIFeXmmvFQ57wQgNQku/HAbk0JNqs4Z0bY=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_2236918_leavef_1.employee</name>

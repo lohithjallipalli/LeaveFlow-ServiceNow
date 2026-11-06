@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_rest">
+    <sys_ux_data_broker_rest action="DELETE">
+        <api_name>x_2236918_leavef_1.Get Employee Leave Balance</api_name>
+        <api_url/>
+        <batch_exclude>false</batch_exclude>
+        <description/>
+        <http_method>GET</http_method>
+        <mutates_server_data>false</mutates_server_data>
+        <name>Get Employee Leave Balance</name>
+        <output_schema/>
+        <parameters/>
+        <private>false</private>
+        <props/>
+        <request_body/>
+        <required_translations/>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_data_broker_rest</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-05 19:07:25</sys_created_on>
+        <sys_id>91dece72471c9f505084bb30116d436a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Employee Leave Balance</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_update_name>sys_ux_data_broker_rest_91dece72471c9f505084bb30116d436a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-05 19:07:25</sys_updated_on>
+    </sys_ux_data_broker_rest>
+    <sys_translated_text action="DELETE" query="documentkey=91dece72471c9f505084bb30116d436a"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="LeaveFlow">99472579475497505084bb30116d436f</application>
+        <file_path/>
+        <instance_id>7e2900023bd107d0baf6048aa4e45abe</instance_id>
+        <instance_name>dev400217</instance_name>
+        <merge_base/>
+        <name>sys_ux_data_broker_rest_91dece72471c9f505084bb30116d436a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_rest"><sys_ux_data_broker_rest action="INSERT_OR_UPDATE"><api_name>x_2236918_leavef_1.Get Employee Leave Balance</api_name><api_url/><batch_exclude>false</batch_exclude><description/><http_method>GET</http_method><mutates_server_data>false</mutates_server_data><name>Get Employee Leave Balance</name><output_schema/><parameters/><private>false</private><props/><request_body/><required_translations/><schema_version>1.0.0</schema_version><sys_class_name>sys_ux_data_broker_rest</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-11-05 19:07:25</sys_created_on><sys_id>91dece72471c9f505084bb30116d436a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Get Employee Leave Balance</sys_name><sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package><sys_policy/><sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope><sys_update_name>sys_ux_data_broker_rest_91dece72471c9f505084bb30116d436a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-11-05 19:07:25</sys_updated_on></sys_ux_data_broker_rest><sys_translated_text action="delete_multiple" query="documentkey=91dece72471c9f505084bb30116d436a"/></record_update>]]></payload>
+        <payload_hash>31014398</payload_hash>
+        <record_name>Get Employee Leave Balance</record_name>
+        <reverted_from/>
+        <source>d1472579475497505084bb30116d4391</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-05 19:07:25</sys_created_on>
+        <sys_id>c30f4eb2471c9f505084bb30116d43ea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a1ad1bd88f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-05 19:07:25</sys_updated_on>
+        <type>REST Data Broker</type>
+        <update_guid>830f4eb2531c9f50633adba7ec64e5e9</update_guid>
+        <update_guid_history>830f4eb2531c9f50633adba7ec64e5e9:31014398</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-05 19:07:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_data_broker_rest">sys_ux_data_broker_rest</sys_db_object>
+        <sys_id>0f75807ef56a4f7f9ef82f9395cf5eb9</sys_id>
+        <sys_metadata>91dece72471c9f505084bb30116d436a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Employee Leave Balance</sys_name>
+        <sys_package display_value="LeaveFlow" source="x_2236918_leavef_1">99472579475497505084bb30116d436f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="LeaveFlow">99472579475497505084bb30116d436f</sys_scope>
+        <sys_scope_delete display_value="">054bd620f5124b5281cc7d263e9bb3c4</sys_scope_delete>
+        <sys_update_name>sys_ux_data_broker_rest_91dece72471c9f505084bb30116d436a</sys_update_name>
+        <sys_update_version display_value="sys_ux_data_broker_rest_91dece72471c9f505084bb30116d436a">c30f4eb2471c9f505084bb30116d43ea</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-05 19:07:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>Can review requests assigned to them.</description>
         <elevated_privilege>false</elevated_privilege>
-        <federated_id/>
+        <federated_id>nEYfOuY0HDXIVz9cFLNZ3UWXBIw+jP/CJA+P1OEAFMk=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_2236918_leavef_1.manager</name>
