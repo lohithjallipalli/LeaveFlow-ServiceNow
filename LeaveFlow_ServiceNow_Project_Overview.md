@@ -2,7 +2,7 @@
 
 ## Problem and scope
 
-LeaveFlow is a Leave Management application built on the ServiceNow Brazil (PDI) release, designed to replace basic form-based leave requests with a modern, responsive, card-driven portal. The project addresses the need for employee self-service leave submission, manager approval workflows, team visibility into team leave, and real-time balance tracking — all while aligning with ServiceNow's strategic Next Experience (UI Builder) framework. The goal is to deliver a professional, accessible, and mobile-first user experience that stands out from standard ServiceNow implementations while maintaining enterprise standards and compliance.
+LeaveFlow is a Leave Management application built on the ServiceNow Brazil (PDI) release, designed to replace basic form-based leave requests with a modern, responsive, card-driven portal. The project addresses the need for employee self-service leave submission, manager approval workflows, team visibility into team leave, and real-time balance tracking — all while aligning with ServiceNow's strategic Next Experience  framework. The goal is to deliver a professional, accessible, and mobile-first user experience that stands out from standard ServiceNow implementations while maintaining enterprise standards and compliance.
 
 ## Features by role
 
